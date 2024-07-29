@@ -10,6 +10,7 @@ import { getDatabase } from 'firebase/database'
 const firebaseConfig = {
   apiKey: 'AIzaSyAYMwkIREdLICLX6AxQI_3Ls9BTX2W9vmg',
   authDomain: 'flyerapp-32a51.firebaseapp.com',
+  databaseURL: 'https://flyerapp-32a51-default-rtdb.firebaseio.com',
   projectId: 'flyerapp-32a51',
   storageBucket: 'flyerapp-32a51.appspot.com',
   messagingSenderId: '682912465880',
