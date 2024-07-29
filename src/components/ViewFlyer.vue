@@ -2,10 +2,10 @@
   <div class="container mt-5">
     <div class="card">
       <div class="card-body text-center">
-        <h1 class="card-title mb-4"></h1>
-        <div v-if="flyerData.image">
-          <img :src="flyerData.image" alt="Flyer Image" class="img-fluid mb-4" />
-          <h2>{{ flyerData.text }}</h2>
+        <h1 class="card-title mb-4">Your Flyer</h1>
+        <div v-if="flyer.image">
+          <img :src="flyer.image" alt="Flyer Image" class="img-fluid mb-4 mx-auto d-block" />
+          <h2>{{ flyer.text }}</h2>
         </div>
         <div v-else>
           <p>No flyer data available.</p>
@@ -16,8 +16,21 @@
 </template>
 
 <script>
+import { database } from '@/firebaseConfig'
+import { ref, onValue } from 'firebase/database'
+
 export default {
-  props: ['flyerData']
+  data() {
+    return {
+      flyer: {}
+    }
+  },
+  created() {
+    const flyerRef = ref(database, 'flyer')
+    onValue(flyerRef, (snapshot) => {
+      this.flyer = snapshot.val()
+    })
+  }
 }
 </script>
 
