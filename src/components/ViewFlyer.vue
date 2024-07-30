@@ -2,7 +2,12 @@
   <div class="container mt-5">
     <div class="card">
       <div class="card-body text-center">
-        <h1 class="card-title mb-4">Your Flyer</h1>
+        <img
+          src="/src/img/caritas-logo-300x106.png"
+          class="img-fluid w-25 top-0 end-0"
+          id="logo_sup"
+        />
+        <!-- <h1 class="card-title mb-4">Your Flyer</h1> -->
         <div v-if="flyer.image">
           <img :src="flyer.image" alt="Flyer Image" class="img-fluid mb-4 mx-auto d-block" />
           <h2>{{ flyer.text }}</h2>
@@ -42,5 +47,11 @@ export default {
 .img-fluid {
   max-width: 100%;
   height: auto;
+}
+.card {
+  padding: 5px 30px 30px;
+}
+#logo_sup {
+  margin-bottom: 15px;
 }
 </style>
